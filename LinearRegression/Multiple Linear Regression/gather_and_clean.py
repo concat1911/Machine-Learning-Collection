@@ -5,18 +5,21 @@ import seaborn as sn
 import matplotlib.pyplot as plt
 
 # Data import
-data = pd.read_csv("../data/steam/steam.csv")
-data.columns
+data = pd.read_csv("../../Data/steam/steam.csv")
+data = data.drop(['appid', 'release_date', 'developer', 'publisher'], axis=1)
 
 # Missing data checking
 msno.matrix(data, figsize=(10, 3))
+
+#Or
+#print(pd.isnull(data).any())
 
 # Distribution
 fig, axes = plt.subplots(nrows=2, ncols=1)
 fig.set_size_inches(10, 20)
 sn.boxplot(data=data, orient="v", ax=axes[0])
 
-# COrrelation analasys
+# Correlation analasys
 corrMatt = data.corr()
 mask = np.array(corrMatt)
 mask[np.tril_indices_from(mask)] = False
