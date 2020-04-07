@@ -17,7 +17,7 @@
 - **Stop Words**
 - **Dependency Parsing** : ancestors
 - **Noun Chunks**
-
+- **One-hot vector**
 # Tools and libraries:
 
 - rasa-nlu-trainer
